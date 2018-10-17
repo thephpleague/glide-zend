@@ -4,8 +4,9 @@ namespace League\Glide\Responses;
 
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
+use PHPUnit\Framework\TestCase;
 
-class ZendResponseFactoryTest extends \PHPUnit_Framework_TestCase
+class ZendResponseFactoryTest extends TestCase
 {
     public function testCreateInstance()
     {
