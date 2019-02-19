@@ -28,10 +28,7 @@ class ZendResponseFactoryTest extends TestCase
         $this->assertInstanceOf('Zend\Diactoros\Response', $response);
         $this->assertEquals('image/jpeg', $response->getHeaderLine('Content-Type'));
         $this->assertEquals('5175', $response->getHeaderLine('Content-Length'));
-        $this->assertContains(
-            date_create('+1 years')->format('D, d M Y H:i:s') . ' GMT',
-            $response->getHeaderLine('Expires')
-        );
+        $this->assertContains(gmdate('D, d M Y H:i', strtotime('+1 years')), $response->getHeaderLine('Expires'));
         $this->assertEquals('max-age=31536000, public', $response->getHeaderLine('Cache-Control'));
     }
 }
